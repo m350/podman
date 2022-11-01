@@ -290,18 +290,24 @@ podman container run --name demo -it alpine
 /# exit
 podman container diff demo
 podman container commit demo {{ registry-host }}/container-training/{{ registry-account }}/demo
+# podman container commit demo artifactory.raiffeisen.ru/container-training-docker/ruaglva/demo
+artifactory.raiffeisen.ru/container-training/<username>/demo
 podman image ls
 ```
 
 - Сценарий "Как ...?"
 ```shell
 podman image tag {{ registry-host }}/container-training/{{ registry-account }}/demo:latest {{ registry-host }}/container-training/{{ registry-account }}/demo:1.0.0
+#podman image tag artifactory.raiffeisen.ru/container-training/ruaglva/demo:latest artifactory.raiffeisen.ru/container-training/ruaglva/demo:1.0.0
+#podman image rm artifactory.raiffeisen.ru/container-training/ruaglva/demo:latest artifactory.raiffeisen.ru/container-training/ruaglva/demo:1.0.0
+podman image tag podman container commit demo artifactory.raiffeisen.ru/container-training-docker/ruaglva/demo:latest artifactory.raiffeisen.ru/container-training-docker/demo:1.0.0
 podman image ls
 ```
 
 - Сценарий "Как ...?"
 ```shell
 podman image push {{ registry-host }}/container-training/{{ registry-account }}/demo:1.0.0
+podman image push artifactory.raiffeisen.ru/container-training-docker/ruaglva/demo:1.0.0
 ```
 
 - Сценарий "Как ...?"
